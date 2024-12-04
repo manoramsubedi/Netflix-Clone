@@ -23,16 +23,16 @@
                         color: red;
                     }
                 </style>
-                {% comment %} {% for message in messages %}
+                {% for message in messages %}
                 <h5>{{message}}</h5>
-                {% endfor %} {% endcomment %}
+                {% endfor %}
             </div>
 
 
             <form action="" method="POST">
                 {% csrf_token %}
-                <input type="text" name="username" placeholder="Username" />
-                <input type="password" name="password" placeholder="Password" />
+                <input type="text" name="username" placeholder="Username" required/>
+                <input type="password" name="password" placeholder="Password" required/>
                 <button style="color:white" type="submit" class="signup-btn">Login</button>
             </form>
             <div class="help-text" align="center">
