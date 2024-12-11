@@ -1,12 +1,19 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
+from . models import Movie
 from django.contrib.auth import authenticate
 from django.contrib import messages, auth
 
 
 # Create your views here.
 def index(request):
-    return render(request, 'index.html')
+    movies = Movie.objects.all()
+    genres = dict(Movie.GENRE_CHOICES)
+    context = {
+        'genres': genres,
+        'movies': movies,
+    }
+    return render(request, 'index.html', context)
 
 def user_login(request):
     if request.method == 'POST':
