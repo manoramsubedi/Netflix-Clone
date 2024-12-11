@@ -4,16 +4,30 @@ from . models import Movie
 from django.contrib.auth import authenticate
 from django.contrib import messages, auth
 
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
+@login_required(login_url='login')
 def index(request):
     movies = Movie.objects.all()
     genres = dict(Movie.GENRE_CHOICES)
+    print(movies)
     context = {
         'genres': genres,
         'movies': movies,
     }
     return render(request, 'index.html', context)
+
+@login_required(login_url='login')
+def movie(request, pk):
+    movie_uid = pk
+    movie_details = Movie.objects.get(u_id=movie_uid)
+    context = {
+        'movie_details': movie_details,
+    }
+
+    return render(request, 'movie.html', context)
 
 def user_login(request):
     if request.method == 'POST':

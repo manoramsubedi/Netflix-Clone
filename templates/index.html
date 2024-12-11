@@ -37,7 +37,7 @@
                 </div>
             </div>
 
-            <span><a href="/my-list">My List</a></span>
+            <span><a href="#">My List</a></span>
         </nav>
 
 
@@ -53,6 +53,8 @@
         </div>
     </header>
 
+
+
     <section class="relative py-20 px-10" style="background-image: url('media/movie_images/card2.jpg'); background-size: cover; background-position: center;">
         <div>
             <h1 style="color: black;" class="text-5xl mb-5">Movie</h1>
@@ -64,6 +66,14 @@
             </div>
         </div>
     </section>
+
+    <!-- <section class="py-10 px-5">
+        <h2 class="text-xl mb-5">My List</h2>
+        <div class = "flex space-x-5 overflow-x-auto">
+        {% for movie in movies %}
+            <div class = "w-40 h-64 flex-shink-0 film-card" onclick="showModal()" style="background-image: url('{{ movie.image_card.url }}'); background-size: cover; background-position: center;"></div>
+        {% endfor %}
+    </section> -->
 
     <section class="py-10 px-5">
         <h2 class="text-xl mb-5">Popular on Netflix</h2>
@@ -77,9 +87,10 @@
                 data-release-date="{{ movie.release_date }}"
                 data-genre="{{ movie.genre }}"
                 data-length="{{ movie.length }}"
-                data-image-card-url="{{ movie.image_card }}"
-                data-image-cover-url="{{ movie.image_cover }}"
+                data-image-card-url="{{ movie.image_card.url }}"
+                data-image-cover-url="{{ movie.image_cover.url }}"
                 data-video-url="/movie/{{ movie.u_id }}"
+
                 style="background-image: url('{{ movie.image_card.url }}'); background-size: cover; background-position: center;">
             </div>
             {% endfor %}
