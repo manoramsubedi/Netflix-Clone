@@ -31,5 +31,8 @@ class Movie(models.Model):
 class MovieList(models.Model):
     owner_user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     #settings.AUTH_USER_MODEL ensures compatibility with both the default User model and any custom user model
-    
+
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.movie.title
