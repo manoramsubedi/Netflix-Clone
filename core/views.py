@@ -15,10 +15,12 @@ import re
 def index(request):
     movies = Movie.objects.all()
     genres = dict(Movie.GENRE_CHOICES)
-    print(movies)
+    featured_movie = movies[len(movies)-1]
+    #print(movies)
     context = {
         'genres': genres,
         'movies': movies,
+        'featured_movie': featured_movie,
     }
     return render(request, 'index.html', context)
 
@@ -131,7 +133,7 @@ def genre(request, pk):
         'movies': movies,
         'movie_genre': movie_genre,
     }
-    return render(request, 'genre.html', context)  
+    return render(request, 'genre.html', context)
 
 @login_required(login_url='login')
 def logout(request):

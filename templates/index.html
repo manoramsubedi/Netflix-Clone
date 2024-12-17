@@ -55,14 +55,12 @@
     </header>
 
 
-
-    <section class="relative py-20 px-10" style="background-image: url('media/movie_images/card2.jpg'); background-size: cover; background-position: center;">
+    <section class="relative py-20 px-10" style="background-image: url('{{featured_movie.image_cover.url}}'); background-size: cover; background-position: center;">
         <div>
-            <h1 style="color: black;" class="text-5xl mb-5">Movie</h1>
-            <p style="color: black;" class="mb-5">This movie is cool.</p>
+            <h1 style="color: black;" class="text-5xl mb-5">{{featured_movie.title}}</h1>
+            <p style="color: black;" class="mb-5">{{featured_movie.description}}.</p>
             <div class="flex space-x-4">
-                <a href="/movie/">
-                    <button class="bg-red-600 text-white p-2 px-5 rounded hover:bg-red-500">Play</button>
+                <a href="/movie/{{featured_movie.u_id}}">
                 </a>
             </div>
         </div>
@@ -96,7 +94,6 @@
             </div>
             {% endfor %}
     </section>
-
 
 
     <!-- Modal -->
