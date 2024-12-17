@@ -112,6 +112,18 @@ def add_to_list(request):
         # return error
         return JsonResponse({'status': 'error', 'message': 'Invalid request'}, status=400)
 
+
+def search(request):
+    if request.method == 'POST':
+        search_term = request.POST.get('search_term')
+        movies = Movie.objects.filter(title__icontains=search_term)
+        context = {
+            'search_term': search_term,
+            'movies':movies
+        }
+        return render(request, 'search.html',context)
+    return redirect('/')
+
 @login_required(login_url='login')
 def logout(request):
     auth.logout(request)
