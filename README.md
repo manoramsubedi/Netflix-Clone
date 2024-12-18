@@ -28,9 +28,11 @@ A fully functional Netflix-like web application built with Django for the backen
 
 #### Screenshots
 #### 1. Home Page
+![image_alt](https://github.com/manoramsubedi/Netflix-Clone/blob/25cc0b9f64b0a6b3818d7c135d469ff5deaee5d2/screenshots/home.JPG)
 #### 2. Login Page
+![image_alt](https://github.com/manoramsubedi/Netflix-Clone/blob/25cc0b9f64b0a6b3818d7c135d469ff5deaee5d2/screenshots/login.JPG)
 #### 3. Movie Playback
-
+![image_alt](https://github.com/manoramsubedi/Netflix-Clone/blob/25cc0b9f64b0a6b3818d7c135d469ff5deaee5d2/screenshots/playback.JPG)
 
 #### Check out my portfolio:
 https://manoramsubedi.pythonanywhere.com/
